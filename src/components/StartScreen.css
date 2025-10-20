@@ -1,0 +1,28 @@
+.start h1 {
+  font-size: 3em;
+}
+
+.start p {
+  margin-bottom: 1em;
+  color: #ecfa00;
+}
+
+.difficulties {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 10px 0 20px 0;
+  flex-wrap: wrap;
+}
+
+.difficulties button.active {
+  outline: 3px solid #ecfa00;
+}
+
+.api-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
