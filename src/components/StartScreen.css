@@ -1,4 +1,5 @@
 .start h1 {
+<<<<<<< HEAD
   font-size: 3em;
 }
 
@@ -26,3 +27,12 @@
   gap: 8px;
   margin-bottom: 20px;
 }
+=======
+  font-size: 3.5em;
+}
+
+.start p {
+  margin-bottom: 2em;
+  color: #ecfa00;
+}
+>>>>>>> 6ce2b44553b61bd5dee6a4a4cd6377f00dfc792b

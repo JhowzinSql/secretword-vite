@@ -1,11 +1,22 @@
 import { useCallback, useEffect, useState } from "react";
 
+<<<<<<< HEAD
+=======
+// components
+>>>>>>> 6ce2b44553b61bd5dee6a4a4cd6377f00dfc792b
 import StartScreen from "./components/StartScreen";
 import Game from "./components/Game";
 import GameOver from "./components/GameOver";
 
+<<<<<<< HEAD
 import "./App.css";
 
+=======
+// styles
+import "./App.css";
+
+// data
+>>>>>>> 6ce2b44553b61bd5dee6a4a4cd6377f00dfc792b
 import { wordsList } from "./data/words";
 
 const stages = [
@@ -14,6 +25,7 @@ const stages = [
   { id: 3, name: "end" },
 ];
 
+<<<<<<< HEAD
 const DIFFICULTY_LIVES = {
   facil: 5,
   normal: 3,
@@ -24,6 +36,10 @@ function App() {
   const [gameStage, setGameStage] = useState(stages[0].name);
   const [useExternalAPI, setUseExternalAPI] = useState(false);
   const [difficulty, setDifficulty] = useState("normal");
+=======
+function App() {
+  const [gameStage, setGameStage] = useState(stages[0].name);
+>>>>>>> 6ce2b44553b61bd5dee6a4a4cd6377f00dfc792b
   const [words] = useState(wordsList);
 
   const [pickedWord, setPickedWord] = useState("");
@@ -32,6 +48,7 @@ function App() {
 
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
+<<<<<<< HEAD
   const [guesses, setGuesses] = useState(DIFFICULTY_LIVES[difficulty]);
   const [score, setScore] = useState(0);
 
@@ -88,6 +105,27 @@ function App() {
     setWrongLetters([]);
 
     const { category, word } = await pickWordAndCategory();
+=======
+  const [guesses, setGuesses] = useState(3);
+  const [score, setScore] = useState(0);
+
+  const pickWordAndCategory = useCallback(() => {
+    const categories = Object.keys(words);
+    const category =
+      categories[Math.floor(Math.random() * Object.keys(categories).length)];
+
+    const word =
+      words[category][Math.floor(Math.random() * words[category].length)];
+
+    return { category, word };
+  }, [words]);
+
+  const startGame = useCallback(() => {
+    setGuessedLetters([]);
+    setWrongLetters([]);
+
+    const { category, word } = pickWordAndCategory();
+>>>>>>> 6ce2b44553b61bd5dee6a4a4cd6377f00dfc792b
 
     let wordLetters = word.split("");
     wordLetters = wordLetters.map((l) => l.toLowerCase());
@@ -97,11 +135,18 @@ function App() {
     setLetters(wordLetters);
 
     setGameStage(stages[1].name);
+<<<<<<< HEAD
   }, [pickWordAndCategory, difficulty]);
 
   const verifyLetter = (letter) => {
     const normalizedLetter = letter.toLowerCase().trim();
     if (!normalizedLetter) return;
+=======
+  }, [pickWordAndCategory]);
+
+  const verifyLetter = (letter) => {
+    const normalizedLetter = letter.toLowerCase();
+>>>>>>> 6ce2b44553b61bd5dee6a4a4cd6377f00dfc792b
 
     if (
       guessedLetters.includes(normalizedLetter) ||
@@ -127,6 +172,7 @@ function App() {
 
   const retry = () => {
     setScore(0);
+<<<<<<< HEAD
     setGuesses(DIFFICULTY_LIVES[difficulty]);
     setGameStage(stages[0].name);
   };
@@ -137,14 +183,41 @@ function App() {
       if (score > currentHighScore) {
         localStorage.setItem("highscore", score);
       }
+=======
+    setGuesses(3);
+    setGameStage(stages[0].name);
+  };
+
+  // useEffect para a condição de derrota e para salvar o high score
+  useEffect(() => {
+    if (guesses === 0) {
+      // Pega o high score salvo. parseInt converte o texto para número.
+      const currentHighScore = parseInt(localStorage.getItem("highscore")) || 0;
+
+      // Compara a pontuação da rodada com o recorde salvo.
+      if (score > currentHighScore) {
+        // Se for maior, salva o novo valor, sobrescrevendo o antigo.
+        localStorage.setItem("highscore", score);
+      }
+
+>>>>>>> 6ce2b44553b61bd5dee6a4a4cd6377f00dfc792b
       setGuessedLetters([]);
       setWrongLetters([]);
       setGameStage(stages[2].name);
     }
+<<<<<<< HEAD
   }, [guesses, score]);
 
   useEffect(() => {
     const uniqueLetters = [...new Set(letters)];
+=======
+  }, [guesses, score]); // ATENÇÃO: Adicionamos 'score' à dependência
+
+  // useEffect para a condição de vitória
+  useEffect(() => {
+    const uniqueLetters = [...new Set(letters)];
+
+>>>>>>> 6ce2b44553b61bd5dee6a4a4cd6377f00dfc792b
     if (letters.length > 0 && guessedLetters.length === uniqueLetters.length) {
       setScore((actualScore) => (actualScore += 100));
       startGame();
@@ -153,6 +226,7 @@ function App() {
 
   return (
     <div className="App">
+<<<<<<< HEAD
       {gameStage === "start" && (
         <StartScreen
           startGame={startGame}
@@ -163,6 +237,9 @@ function App() {
         />
       )}
 
+=======
+      {gameStage === "start" && <StartScreen startGame={startGame} />}
+>>>>>>> 6ce2b44553b61bd5dee6a4a4cd6377f00dfc792b
       {gameStage === "game" && (
         <Game
           verifyLetter={verifyLetter}
@@ -173,10 +250,15 @@ function App() {
           wrongLetters={wrongLetters}
           guesses={guesses}
           score={score}
+<<<<<<< HEAD
           difficulty={difficulty}
         />
       )}
 
+=======
+        />
+      )}
+>>>>>>> 6ce2b44553b61bd5dee6a4a4cd6377f00dfc792b
       {gameStage === "end" && <GameOver retry={retry} score={score} />}
     </div>
   );

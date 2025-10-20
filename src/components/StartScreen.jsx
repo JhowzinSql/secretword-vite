@@ -1,5 +1,6 @@
 import "./StartScreen.css";
 
+<<<<<<< HEAD
 const StartScreen = ({ startGame, difficulty, setDifficulty, useExternalAPI, setUseExternalAPI }) => {
   const handleStart = () => {
     startGame({ difficulty, useExternalAPI });
@@ -41,6 +42,14 @@ const StartScreen = ({ startGame, difficulty, setDifficulty, useExternalAPI, set
       </label>
 
       <button onClick={handleStart}>Começar jogo</button>
+=======
+const StartScreen = ({ startGame }) => {
+  return (
+    <div className="start">
+      <h1>Secret Word 🤫</h1>
+      <p>Clique no botão abaixo para começar a jogar 👇</p>
+      <button onClick={startGame}>Começar jogo</button>
+>>>>>>> 6ce2b44553b61bd5dee6a4a4cd6377f00dfc792b
     </div>
   );
 };

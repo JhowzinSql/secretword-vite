@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 import { useState, useRef, useMemo } from "react";
 import "./Game.css";
 
 const BASE_KEYS = "abcdefghijklmnopqrstuvwxyz".split("");
 const PT_EXTRA_KEYS = ["á","â","ã","à","é","ê","í","ó","ô","õ","ú","ç"];
 
+=======
+import { useState, useRef } from "react";
+import "./Game.css";
+
+>>>>>>> 6ce2b44553b61bd5dee6a4a4cd6377f00dfc792b
 const Game = ({
   verifyLetter,
   pickedCategory,
@@ -12,13 +18,17 @@ const Game = ({
   wrongLetters,
   guesses,
   score,
+<<<<<<< HEAD
   difficulty,
+=======
+>>>>>>> 6ce2b44553b61bd5dee6a4a4cd6377f00dfc792b
 }) => {
   const [letter, setLetter] = useState("");
   const letterInputRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+<<<<<<< HEAD
     if (!letter) return;
     verifyLetter(letter);
     setLetter("");
@@ -30,6 +40,13 @@ const Game = ({
   const isUsed = (k) =>
     guessedLetters.includes(k) || wrongLetters.includes(k);
 
+=======
+    verifyLetter(letter);
+    setLetter("");
+    letterInputRef.current.focus();
+  };
+
+>>>>>>> 6ce2b44553b61bd5dee6a4a4cd6377f00dfc792b
   return (
     <div className="game">
       <p className="points">
@@ -42,7 +59,11 @@ const Game = ({
         Dica sobre a palavra: <span>{pickedCategory}</span>
       </h3>
 
+<<<<<<< HEAD
       <p>Você ainda tem <b>{guesses}</b> tentativa(s) — Dificuldade: <b>{difficulty}</b></p>
+=======
+      <p>Você ainda tem {guesses} tentativa(s).</p>
+>>>>>>> 6ce2b44553b61bd5dee6a4a4cd6377f00dfc792b
 
       <div className="wordContainer">
         {letters.map((letter, i) =>
@@ -72,6 +93,7 @@ const Game = ({
         </form>
       </div>
 
+<<<<<<< HEAD
       <div className="virtualKeyboard">
         {keys.map((k) => (
           <button
@@ -96,6 +118,13 @@ const Game = ({
             </span>
           ))}
         </p>
+=======
+      <div className="wrongLettersContainer">
+        <p>Letras já utilizadas:</p>
+        {wrongLetters.map((letter, i) => (
+          <span key={i}>{letter}, </span>
+        ))}
+>>>>>>> 6ce2b44553b61bd5dee6a4a4cd6377f00dfc792b
       </div>
     </div>
   );

@@ -1,6 +1,11 @@
 import "./GameOver.css";
 
 const GameOver = ({ retry, score }) => {
+<<<<<<< HEAD
+=======
+  // 1. Tenta pegar o item "highscore". Se não existir, o valor será null.
+  // 2. O operador || (OU) garante que, se for null, o valor padrão será 0.
+>>>>>>> 6ce2b44553b61bd5dee6a4a4cd6377f00dfc792b
   const highScore = localStorage.getItem("highscore") || 0;
 
   return (

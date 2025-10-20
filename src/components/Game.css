@@ -1,5 +1,9 @@
 .game h1 {
+<<<<<<< HEAD
   font-size: 2.2em;
+=======
+  font-size: 2.5em;
+>>>>>>> 6ce2b44553b61bd5dee6a4a4cd6377f00dfc792b
 }
 
 .points span {
@@ -15,22 +19,36 @@
   padding: 1.5em;
   border: 20px solid #ecfa00;
   display: flex;
+<<<<<<< HEAD
   flex-wrap: wrap;
   justify-content: center;
+=======
+>>>>>>> 6ce2b44553b61bd5dee6a4a4cd6377f00dfc792b
 }
 
 .letter,
 .blankSquare {
+<<<<<<< HEAD
   font-size: 56px;
   line-height: 1.5;
   border: 3px solid #000;
   height: 80px;
   width: 80px;
+=======
+  font-size: 70px;
+  line-height: 1.5;
+  border: 3px solid #000;
+  height: 100px;
+  width: 100px;
+>>>>>>> 6ce2b44553b61bd5dee6a4a4cd6377f00dfc792b
   text-transform: uppercase;
   background-color: #fff;
   color: #000;
   font-weight: bold;
+<<<<<<< HEAD
   margin: 3px;
+=======
+>>>>>>> 6ce2b44553b61bd5dee6a4a4cd6377f00dfc792b
 }
 
 .letterContainer p {
@@ -41,8 +59,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+<<<<<<< HEAD
   gap: 10px;
   flex-wrap: wrap;
+=======
+>>>>>>> 6ce2b44553b61bd5dee6a4a4cd6377f00dfc792b
 }
 
 .letterContainer input {
@@ -50,6 +71,7 @@
   width: 50px;
   font-size: 2em;
   text-align: center;
+<<<<<<< HEAD
 }
 
 .virtualKeyboard {
@@ -71,4 +93,7 @@
 
 .wrongList {
   min-height: 24px;
+=======
+  margin-right: 1em;
+>>>>>>> 6ce2b44553b61bd5dee6a4a4cd6377f00dfc792b
 }
